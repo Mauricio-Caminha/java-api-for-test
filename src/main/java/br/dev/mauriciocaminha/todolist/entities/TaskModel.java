@@ -52,4 +52,12 @@ public class TaskModel {
         }
         this.title = title;
     }
+
+    // Explicit getters/setters to avoid relying solely on Lombok during compile
+    public UUID getId() { return this.id; }
+    public UUID getUserId() { return this.userId; }
+    public void setUserId(UUID userId) { this.userId = userId; }
+    public LocalDateTime getStartAt() { return this.startAt; }
+    public LocalDateTime getEndAt() { return this.endAt; }
+    public void setEndAt(LocalDateTime endAt) { this.endAt = endAt; }
 }

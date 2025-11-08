@@ -1,7 +1,7 @@
 package br.dev.mauriciocaminha.todolist.filters;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import br.dev.mauriciocaminha.todolist.repository.UserRepository;
+import br.dev.mauriciocaminha.todolist.service.AuthenticationService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +17,9 @@ public class FilterTaskAuth extends OncePerRequestFilter {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AuthenticationService authenticationService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -36,8 +39,8 @@ public class FilterTaskAuth extends OncePerRequestFilter {
             if (user == null) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             } else {
-                var passwordVerify = BCrypt.verifyer().verify(credentials[1].toCharArray(), user.getPassword());
-                if (passwordVerify.verified) {
+                var passwordVerify = this.authenticationService.verifyPassword(user, credentials[1]);
+                if (passwordVerify) {
                     request.setAttribute("userId", user.getId());
                     // Segue
                     filterChain.doFilter(request, response);

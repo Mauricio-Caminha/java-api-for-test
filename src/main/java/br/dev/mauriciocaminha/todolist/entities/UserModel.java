@@ -35,4 +35,11 @@ public class UserModel {
     @UpdateTimestamp
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
+
+    // Explicit getters/setters for fields used by services
+    public UUID getId() { return this.id; }
+    public String getUsername() { return this.username; }
+    public String getName() { return this.name; }
+    public String getPassword() { return this.password; }
+    public void setPassword(String password) { this.password = password; }
 }
