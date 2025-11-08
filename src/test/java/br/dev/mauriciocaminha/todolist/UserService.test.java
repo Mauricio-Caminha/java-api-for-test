@@ -1,7 +1,8 @@
-package br.dev.mauriciocaminha.todolist.service;
+package br.dev.mauriciocaminha.todolist;
 
 import br.dev.mauriciocaminha.todolist.entities.UserModel;
 import br.dev.mauriciocaminha.todolist.repository.UserRepository;
+import br.dev.mauriciocaminha.todolist.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;

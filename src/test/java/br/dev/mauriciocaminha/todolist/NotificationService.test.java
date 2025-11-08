@@ -1,6 +1,7 @@
-package br.dev.mauriciocaminha.todolist.service;
+package br.dev.mauriciocaminha.todolist;
 
 import br.dev.mauriciocaminha.todolist.entities.TaskModel;
+import br.dev.mauriciocaminha.todolist.service.NotificationService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -10,7 +11,7 @@ import java.util.UUID;
 
 import static org.mockito.Mockito.verify;
 
-public class NotificationServiceTest {
+class NotificationServiceTest {
 
     @InjectMocks
     private NotificationService notificationService;

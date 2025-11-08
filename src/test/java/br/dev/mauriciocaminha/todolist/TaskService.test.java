@@ -1,8 +1,9 @@
-package br.dev.mauriciocaminha.todolist.service;
+package br.dev.mauriciocaminha.todolist;
 
 import br.dev.mauriciocaminha.todolist.entities.TaskModel;
 import br.dev.mauriciocaminha.todolist.repository.TaskRepository;
 import br.dev.mauriciocaminha.todolist.service.NotificationService;
+import br.dev.mauriciocaminha.todolist.service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,6 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.any(UUID.class);
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
