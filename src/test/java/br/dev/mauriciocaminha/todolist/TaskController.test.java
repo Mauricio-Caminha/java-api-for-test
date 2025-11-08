@@ -38,10 +38,10 @@ class TaskControllerTest {
     }
 
     @Test
-    void testCreateTask() {
+    void testCreateTask() throws Exception {
         TaskModel taskModel = new TaskModel();
         taskModel.setId(UUID.randomUUID());
-        taskModel.setName("Test Task");
+        taskModel.setTitle("Test Task");
 
         when(taskService.create(any(TaskModel.class), any(HttpServletRequest.class))).thenReturn(taskModel);
 
@@ -65,11 +65,11 @@ class TaskControllerTest {
     }
 
     @Test
-    void testListAllByUser() {
+    void testListAllByUser() throws Exception {
         List<TaskModel> tasks = new ArrayList<>();
         TaskModel taskModel = new TaskModel();
         taskModel.setId(UUID.randomUUID());
-        taskModel.setName("Test Task");
+        taskModel.setTitle("Test Task");
         tasks.add(taskModel);
 
         when(taskService.listAllByUser(any(HttpServletRequest.class))).thenReturn(tasks);
@@ -81,10 +81,10 @@ class TaskControllerTest {
     }
 
     @Test
-    void testUpdateTask() {
+    void testUpdateTask() throws Exception {
         UUID taskId = UUID.randomUUID();
         TaskModel taskModel = new TaskModel();
-        taskModel.setName("Updated Task");
+        taskModel.setTitle("Updated Task");
 
         when(taskService.updateTask(any(UUID.class), any(TaskModel.class), any(HttpServletRequest.class)))
                 .thenReturn(taskModel);

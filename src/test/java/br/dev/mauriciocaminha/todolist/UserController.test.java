@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class UserControllerTest {
+class UserControllerTest {
 
     @InjectMocks
     private UserController userController;
@@ -31,7 +31,7 @@ public class UserControllerTest {
     public void testCreateUserSuccessfully() {
         UserModel userModel = new UserModel();
         userModel.setName("John Doe");
-        userModel.setEmail("john.doe@example.com");
+        userModel.setUsername("john.doe@example.com");
 
         when(userService.create(userModel)).thenReturn(userModel);
 
